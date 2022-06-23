@@ -7,7 +7,7 @@ function App() {
   return ( //Example of inline styling
     <div className="container ">
       <Header title="Task Tracker"/>
-      
+      <Tasks/>
     </div>
   );
 }
