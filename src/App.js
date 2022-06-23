@@ -27,10 +27,16 @@ function App() {
     ]
   )
 
+  //Delete Task Function
+  const deleteTask = (id) => {
+    //console.log('delete', id)
+    setTasks(tasks.filter((task) => task.id !== id))
+  }
+
   return ( //Example of inline styling
     <div className="container ">
-      <Header title="Task Tracker"/>
-      <Tasks tasks={tasks}/>
+      <Header title="Task Tracker" />
+      {tasks.length > 0 ? (<Tasks tasks={tasks} onDelete={deleteTask}/>) : ('No Tasks Active')}
     </div>
   );
 }
