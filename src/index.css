@@ -59,10 +59,13 @@ body {
   margin: 5px;
   padding: 10px 20px;
   cursor: pointer;
+  transition: 100ms ease-in-out;
+  border-left: 0px solid green
 }
 
 .task.reminder {
   border-left: 5px solid green;
+  transition: 100ms ease-in-out;
 }
 
 .task h3 {

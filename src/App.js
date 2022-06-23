@@ -33,10 +33,17 @@ function App() {
     setTasks(tasks.filter((task) => task.id !== id))
   }
 
+  //Toggle Reminder
+  const ToggleReminder = (id) => {
+    //console.log(id)
+    setTasks(tasks.map((task) => task.id === id ? {...task, reminder:!task.reminder} : task))
+    //Here tasks is our state, wwe map through all the tasks, with each one called 'task' 
+  }
+
   return ( //Example of inline styling
     <div className="container ">
       <Header title="Task Tracker" />
-      {tasks.length > 0 ? (<Tasks tasks={tasks} onDelete={deleteTask}/>) : ('No Tasks Active')}
+      {tasks.length > 0 ? (<Tasks tasks={tasks} onDelete={deleteTask} onToggle={ToggleReminder}/>) : ('No Tasks Active')}
     </div>
   );
 }

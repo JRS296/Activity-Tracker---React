@@ -23,12 +23,12 @@ const tasks = [
   },
 ]*/
 
-const Tasks = ({ tasks, onDelete }) => {
+const Tasks = ({ tasks, onDelete, onToggle }) => {
   
   return (
     <>
       {tasks.map((task, index) => (
-        <Task key={task.id} task={task} onDelete={onDelete}/>
+        <Task key={task.id} task={task} onDelete={onDelete} onToggle={onToggle}/>
         //<h3 key={task.id}>{task.text}</h3>
         //<Task key={index} task={task} onDelete={onDelete} onToggle={onToggle} />
       ))}
