@@ -1,7 +1,10 @@
 import React from "react";
 import Header from "./components/Header";
 import Tasks from "./components/Tasks";
+import AddTask from "./components/AddTask";
 import { useState } from 'react' //This is a hook
+
+//Tutorial Used: https://www.youtube.com/watch?v=w7ejDZ8SWv8&t=0s
 
 function App() {
   const [tasks, setTasks] = useState(
@@ -26,6 +29,14 @@ function App() {
       },
     ]
   )
+  
+  //Add Task Function
+  const addTask = (task) => {
+    //console.log(task)
+    const id = Math.floor(Math.random() * 100) + 1
+    const newTask = {id, ...task} //...task, gets all the attributes from parent function's parameter
+    setTasks([...tasks, newTask])
+  }
 
   //Delete Task Function
   const deleteTask = (id) => {
@@ -43,6 +54,7 @@ function App() {
   return ( //Example of inline styling
     <div className="container ">
       <Header title="Task Tracker" />
+      <AddTask onAdd={addTask}/>
       {tasks.length > 0 ? (<Tasks tasks={tasks} onDelete={deleteTask} onToggle={ToggleReminder}/>) : ('No Tasks Active')}
     </div>
   );
