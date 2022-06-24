@@ -7,6 +7,7 @@ import { useState } from 'react' //This is a hook
 //Tutorial Used: https://www.youtube.com/watch?v=w7ejDZ8SWv8&t=0s
 
 function App() {
+  const [showAddTask, setShowAddTask] = useState(false)
   const [tasks, setTasks] = useState(
     [
       {
@@ -53,8 +54,8 @@ function App() {
 
   return ( //Example of inline styling
     <div className="container ">
-      <Header title="Task Tracker" />
-      <AddTask onAdd={addTask}/>
+      <Header onAdd={() => setShowAddTask(!showAddTask)} title="Task Tracker" showAdd={showAddTask}/>
+      {showAddTask ? (<AddTask onAdd={addTask}/>) : (<></>)}
       {tasks.length > 0 ? (<Tasks tasks={tasks} onDelete={deleteTask} onToggle={ToggleReminder}/>) : ('No Tasks Active')}
     </div>
   );

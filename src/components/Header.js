@@ -2,15 +2,15 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Button from './Button'
 
-const Header = (lala) => { //can also do ({title}) instead of (lala)
-    const onClick = () => {
+const Header = ({title,onAdd,showAdd}) => { //can also do ({title}) instead of (lala)
+    /*const onClick = () => {
         console.log('Heya')
-    }
+    }*/
 
   return (
     <header className='header'>
-        <h1>{lala.title}</h1> 
-        <Button color='green' text='Add' onClick={onClick}/>
+        <h1>{title}</h1> 
+        <Button color={showAdd ? 'red' : 'green'} text={showAdd ? 'Close' : 'Add'} onClick={onAdd}/>
     </header>
   ) //can use just {title}, if method 2 is used instead of lala.title
 }
